@@ -1,6 +1,7 @@
 import "./LandingPage.css";
 import laying from "../laying.svg";
 import selfie from "../selfie.svg";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -14,10 +15,12 @@ export default function LandingPage() {
           The test is proven an has been tried and tested.
         </p>
 
-        <button className="btn">
-          <span>Take a quick test!</span>
-          <span>Time: 5 minutes</span>
-        </button>
+        <Link to="/quiz">
+          <button className="btn">
+            <span>Take a quick test!</span>
+            <span>Time: 5 minutes</span>
+          </button>
+        </Link>
       </div>
 
       <div className="hero-illustrations">
