@@ -1,0 +1,91 @@
+.section-hero {
+  max-width: 120rem;
+  height: calc(100vh - 8rem);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 6fr 4fr;
+}
+
+.hero-message {
+  padding: 9.6rem 11.4rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-message h1 {
+  font-weight: 700;
+  font-size: 4.8rem;
+
+  margin-bottom: 3.2rem;
+}
+
+.hero-message p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.4;
+
+  opacity: 80%;
+
+  margin-bottom: 4.8rem;
+}
+
+.btn {
+  border: 0;
+  background-color: #306bac;
+  color: #f5f5f5;
+
+  cursor: pointer;
+
+  padding: 1.2rem 2.4rem;
+  border-radius: 11px;
+  box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: #26568a;
+}
+
+.hero-message button span {
+  display: block;
+}
+
+.hero-message button span:nth-child(1) {
+  font-weight: 500;
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-message button span:nth-child(2) {
+  font-weight: 400;
+  font-size: 1.6rem;
+  opacity: 80%;
+}
+
+.hero-illustrations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 4.8rem 9.6rem;
+}
+
+.illustration-selfie,
+.illustration-laying {
+  width: 70%;
+  opacity: 90%;
+}
+
+.illustration-laying {
+  width: 90%;
+  justify-self: end;
+  align-self: end;
+}
+
+.illustration-laying {
+  align-self: end;
+}
