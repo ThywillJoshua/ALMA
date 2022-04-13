@@ -5,24 +5,25 @@ interface Props {
   }[];
   finalAnswer: String;
   handleAnswer: (answer: String, personalityType: String) => void;
-  setUserPersonality: any;
+  setChosenPersonality: any;
 }
 
 export default function Answer({
   answers,
   handleAnswer,
   finalAnswer,
-  setUserPersonality,
+  setChosenPersonality,
 }: Props) {
   const handleAnswerClick = (answer: String, personalityType: String): void => {
     handleAnswer(answer, personalityType);
-    setUserPersonality((prev: []) => [...prev, personalityType]);
+    setChosenPersonality(personalityType);
   };
 
   return (
     <ul className="answers">
-      {answers.map((answer) => (
+      {answers.map((answer, idx) => (
         <li
+          key={idx}
           className={
             answer.answer === finalAnswer ? "selected-answer answer" : "answer"
           }

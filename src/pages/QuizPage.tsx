@@ -16,7 +16,16 @@ export default function QuizPage() {
   const finalAnswer = state.questions[state.currentQuestionIndex].finalAnswer;
 
   //set user personality
-  const [userPersonalityArr, setUserPersonality] = useState<String[] | []>([]);
+  const [userPersonalityArr, setUserPersonalityArr] = useState<String[] | []>(
+    []
+  );
+
+  const [chosenAnswerPersonality, setChosenAnswerPersonality] =
+    useState<String>("");
+
+  useEffect(() => {
+    dispatch({ type: "GET_QUESTIONS" });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -29,6 +38,11 @@ export default function QuizPage() {
   }, [finalAnswer]);
 
   function nextQuestion() {
+    setUserPersonalityArr((prev) => {
+      prev[state.currentQuestionIndex] = chosenAnswerPersonality;
+      return prev;
+    });
+
     const lastQuestion = state.questions
       .map((val) => val.question)
       .slice(-1)[0];
@@ -85,7 +99,7 @@ export default function QuizPage() {
             answers={answers}
             finalAnswer={finalAnswer}
             handleAnswer={handleAnswer}
-            setUserPersonality={setUserPersonality}
+            setChosenPersonality={setChosenAnswerPersonality}
           />
         </div>
 

@@ -3,11 +3,14 @@ import laying from "../laying.svg";
 import selfie from "../selfie.svg";
 import { useContext, useEffect } from "react";
 import { QuizContext } from "../contexts/quizContext";
+import { useNavigate } from "react-router-dom";
 
 export default function ResultPage() {
   const { state } = useContext(QuizContext);
 
-  useEffect(() => {}, [state.userPersonalityType]);
+  // useEffect(() => {}, [state.userPersonalityType])
+
+  const navigate = useNavigate();
 
   return (
     <section className="section-hero">
@@ -25,7 +28,7 @@ export default function ResultPage() {
             anymore. The test is proven an has been tried and tested.
           </p>
 
-          <button className="btn">
+          <button className="btn" onClick={() => navigate("/quiz")}>
             <span>Retake the test!</span>
             <span>Time: 5 minutes</span>
           </button>

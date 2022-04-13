@@ -28,6 +28,9 @@ const initialState: Init = {
 
 const quizReducer = (state: typeof initialState, action: QuizAction) => {
   switch (action.type) {
+    case "GET_QUESTIONS":
+      return initialState;
+
     case "NEXT_QUESTION":
       return {
         ...state,
