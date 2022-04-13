@@ -1,0 +1,109 @@
+.section-hero {
+  height: calc(100vh - 8rem);
+  position: relative;
+
+  & .hero-message {
+    margin-top: 4.8rem;
+    padding: 4.8rem 11.4rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & h1 {
+      font-weight: 700;
+      font-size: 4.8rem;
+      line-height: 4.8rem;
+      margin-bottom: 4.8rem;
+    }
+
+    & p {
+      font-weight: 400;
+      font-size: 2.4rem;
+      line-height: 1.4;
+
+      opacity: 80%;
+
+      margin-bottom: 7.2rem;
+    }
+
+    & button span {
+      display: block;
+    }
+
+    & button span:nth-child(1) {
+      font-weight: 500;
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+    }
+
+    & button span:nth-child(2) {
+      font-weight: 400;
+      font-size: 1.6rem;
+      opacity: 80%;
+    }
+  }
+
+  & .illustration-selfie,
+  & .illustration-laying {
+    position: absolute;
+    bottom: 5rem;
+
+    opacity: 70%;
+  }
+
+  & .illustration-selfie {
+    left: 3rem;
+    width: 25rem;
+  }
+
+  & .illustration-laying {
+    right: 3rem;
+
+    width: 45rem;
+    justify-self: end;
+    align-self: end;
+  }
+}
+
+//760px
+@media (max-width: 47.5em) {
+  .section-hero {
+    & .illustration-selfie {
+      left: 3rem;
+      width: 25rem;
+    }
+
+    & .illustration-laying {
+      right: 3rem;
+
+      width: 35rem;
+      justify-self: end;
+      align-self: end;
+    }
+  }
+}
+
+//550px
+@media (max-width: 34em) {
+  .section-hero {
+    & .hero-message {
+      padding: 3.2rem 4.8rem;
+    }
+
+    & .illustration-selfie {
+      left: 1rem;
+      width: 25rem;
+    }
+
+    & .illustration-laying {
+      right: 1rem;
+
+      width: 35rem;
+      justify-self: end;
+      align-self: end;
+    }
+  }
+}
