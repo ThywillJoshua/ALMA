@@ -24,9 +24,7 @@ export default function Answer({
       {answers.map((answer, idx) => (
         <li
           key={idx}
-          className={
-            answer.answer === finalAnswer ? "selected-answer answer" : "answer"
-          }
+          className={answer.answer === finalAnswer ? "selected-answer" : ""}
           onClick={() =>
             handleAnswerClick(answer.answer, answer.personalityType)
           }

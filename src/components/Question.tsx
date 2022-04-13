@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function Question({ currentQuestion }: Props) {
-  return <p>{currentQuestion}</p>;
+  return <p className="question">{currentQuestion}</p>;
 }

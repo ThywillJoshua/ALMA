@@ -14,6 +14,8 @@ export default function QuizPage() {
   const finalAnswer = state.questions[state.currentQuestionIndex].finalAnswer;
 
   const [isQuestionAnswered, setisQuestionAnswered] = useState<Boolean>(false);
+  const [firstQuestion, setFirstQuestion] = useState<String>("");
+  const [isFirstQuestion, setIsFirstQuestion] = useState<Boolean>(false);
   const [userPersonalityArr, setUserPersonalityArr] = useState<String[] | []>(
     []
   );
@@ -21,18 +23,25 @@ export default function QuizPage() {
     useState<String>("");
 
   useEffect(() => {
+    setFirstQuestion(state.questions.map((val) => val.question)[0]);
     dispatch({ type: "GET_QUESTIONS" });
   }, []);
 
   useEffect(() => {
+    if (currentQuestion === firstQuestion) {
+      setIsFirstQuestion(true);
+    }
+
     if (finalAnswer) {
       setisQuestionAnswered(true);
     } else {
       setisQuestionAnswered(false);
     }
-  }, [finalAnswer]);
+  }, [finalAnswer, currentQuestion]);
 
   function nextQuestion() {
+    setIsFirstQuestion(false);
+
     setUserPersonalityArr((prev) => {
       prev[state.currentQuestionIndex] = chosenAnswerPersonality;
       return prev;
@@ -64,13 +73,7 @@ export default function QuizPage() {
   }
 
   function previousQuestion() {
-    const firstQuestion = state.questions.map((val) => val.question)[0];
-
-    if (currentQuestion === firstQuestion) {
-      alert("This is the first question");
-    } else {
-      dispatch({ type: "PREVIOUS_QUESTION" });
-    }
+    dispatch({ type: "PREVIOUS_QUESTION" });
   }
 
   function handleAnswer(answer: String, personalityType: String) {
@@ -83,9 +86,7 @@ export default function QuizPage() {
   return (
     <div className="section-quiz">
       <div className="quiz-container">
-        <h3 className="section-quiz-header">
-          Question {state.currentQuestionIndex + 1}
-        </h3>
+        <h3>Question {state.currentQuestionIndex + 1}</h3>
 
         <div className="question">
           <Question currentQuestion={currentQuestion} />
@@ -99,7 +100,11 @@ export default function QuizPage() {
         </div>
 
         <div className="quiz-btns">
-          <button className="btn" onClick={previousQuestion}>
+          <button
+            className={isFirstQuestion ? "btn disabled-btn" : "btn"}
+            onClick={previousQuestion}
+            disabled={isFirstQuestion && true}
+          >
             {"< Previous"}
           </button>
           <button
