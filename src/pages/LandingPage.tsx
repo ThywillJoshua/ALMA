@@ -1,4 +1,3 @@
-import "./LandingPage.css";
 import laying from "../laying.svg";
 import selfie from "../selfie.svg";
 import { Link } from "react-router-dom";

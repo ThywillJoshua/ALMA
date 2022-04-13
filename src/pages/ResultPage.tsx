@@ -1,14 +1,11 @@
-import "./ResultPage.css";
 import laying from "../laying.svg";
 import selfie from "../selfie.svg";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { QuizContext } from "../contexts/quizContext";
 import { useNavigate } from "react-router-dom";
 
 export default function ResultPage() {
   const { state } = useContext(QuizContext);
-
-  // useEffect(() => {}, [state.userPersonalityType])
 
   const navigate = useNavigate();
 

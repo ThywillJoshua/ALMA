@@ -5,29 +5,24 @@ import { useNavigate } from "react-router-dom";
 import Answer from "../components/Answer";
 import Question from "../components/Question";
 
-import "./QuizPage.css";
-
 export default function QuizPage() {
+  const navigate = useNavigate();
   const { state, dispatch } = useContext(QuizContext);
-  const [isQuestionAnswered, setisQuestionAnswered] = useState<Boolean>(false);
 
   const currentQuestion = state.questions[state.currentQuestionIndex].question;
   const answers = state.questions[state.currentQuestionIndex].answers;
   const finalAnswer = state.questions[state.currentQuestionIndex].finalAnswer;
 
-  //set user personality
+  const [isQuestionAnswered, setisQuestionAnswered] = useState<Boolean>(false);
   const [userPersonalityArr, setUserPersonalityArr] = useState<String[] | []>(
     []
   );
-
   const [chosenAnswerPersonality, setChosenAnswerPersonality] =
     useState<String>("");
 
   useEffect(() => {
     dispatch({ type: "GET_QUESTIONS" });
   }, []);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (finalAnswer) {
