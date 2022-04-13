@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
 
-  background-color: #0e2034;
+  background-color: $dark-blue;
 
   padding: 3.2rem;
 }
@@ -13,7 +13,7 @@
 .logo,
 a:link,
 a:visited {
-  color: #f5f5f5;
+  color: $light-gray;
 
   display: inline-block;
   font-weight: 700;

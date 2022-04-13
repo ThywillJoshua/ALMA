@@ -1,4 +1,4 @@
-import "./styles/global.scss";
+import "./styles/Styles.scss";
 
 import Nav from "./components/Nav";
 import LandingPage from "./pages/LandingPage";
